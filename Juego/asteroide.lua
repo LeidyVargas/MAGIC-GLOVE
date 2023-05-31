@@ -13,9 +13,16 @@ function asteroide.new(self, dt)
 
     self.y = - windowHeight - math.random(50, 1000)  
 
+    self.hitboxX = 51.5 
+    self.hitboxY = 51.5 
+    self.hitboxRadio = 45
+
     -- self.hitbox = love.graphics.circle("fill", (self.x+self.Width)/2 , (self.y+self.Height)/2, self.Height/2, 5)
 end
 
 function asteroide.update(self, dt)
     self.y = self.y + velocidadAsteroide * dt
 end 
+function asteroide.draw(self)
+    love.graphics.draw(self.img, self.x, self.y)
+end
