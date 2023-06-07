@@ -1,10 +1,16 @@
+local socket = require('socket')
+Udp = socket.udp()
+Udp:setsockname('*', 3001)
+Udp:settimeout(0)
+
 function love.load ()
   -- carga e inicio de variables
   -- pantallaCarga = love.graphics.newVideo('images/Pantalla-de-inicio.mp4')
   
   Object = require 'classic'
   require 'asteroide'
-
+  -- controles
+  --
   gameOver = love.graphics.newImage('images/game-over.png')
 
   windowHeight = love.graphics.getHeight()
@@ -23,10 +29,12 @@ function love.load ()
   
   hitBoxX = naveWidth/2 
   hitBoxY = naveHeight/2
-  hitBoxRadio = 30 
+  hitBoxRadio = 25
  
   velocidadJugador = 350
-  velocidadAsteroide = 500
+  velocidadAsteroide = 25
+
+  text = "ejemplo"
 
   a = asteroide()
   b = asteroide()
@@ -34,43 +42,53 @@ function love.load ()
   d = asteroide()
   e = asteroide()
   f = asteroide()
-  -- g = asteroide()
+  g = asteroide()
 end
 
 function love.update(dt)
   -- logica del juego se actualiza constantemente
-  -- movimientos de la nave
-  if love.keyboard.isDown("right") then
-    posicionX = posicionX + velocidadJugador * dt
-  end
-  if love.keyboard.isDown("left") then
-    posicionX = posicionX - velocidadJugador * dt
-  end
+  local data, msg_or_ip, port_or_nil = Udp:receivefrom()
 
-  -- limites de la nave
-  if posicionX < 0 then
-    posicionX = 0
-    end 
-  if posicionX + naveWidth > windowWidth then
-    posicionX = windowWidth - naveWidth
+  if data then
+    text = data
   end
-
+  text = msg_or_ip
+  -- Udp:sendto(tostring("Prueba"), msg_or_ip, port_or_nil)
   -- asteroides
-
-  if (checkColision(a) or checkColision(b) or checkColision(c) or checkColision(d) or checkColision(e) or checkColision(f) ) then 
+  
+  if (checkColision(a) or checkColision(b) or checkColision(c) or checkColision(d) or checkColision(e) or checkColision(f) or checkColision(g)) then 
     colision = true
   else 
     colision = false
   end
-
+  
   if not colision then
+    -- movimientos de la nave
+    -- movimiento = controlesUpdate()
+    -- posicionX = posicionX + (movimiento * velocidadJugador) * dt
+
+    -- if love.keyboard.isDown("right") then
+    --   posicionX = posicionX + velocidadJugador * dt
+    -- end
+    -- if love.keyboard.isDown("left") then
+    --   posicionX = posicionX - velocidadJugador * dt
+    -- end
+  
+    -- limites de la nave
+    if posicionX < 0 then
+      posicionX = 0
+      end 
+    if posicionX + naveWidth > windowWidth then
+      posicionX = windowWidth - naveWidth
+    end
+    -- update asteroides
     a.update(a, dt * 1)
     b.update(b, dt * 1)
     c.update(c, dt * 1.1)
     d.update(d, dt * 1.2)
     e.update(e, dt * 0.9)
     f.update(f, dt * 1.1)
-    -- g.update(g, dt * 0.9)
+    g.update(g, dt * 0.9)
   
     if a.y > windowHeight then
      a = asteroide() 
@@ -91,12 +109,10 @@ function love.update(dt)
      if f.y > windowHeight then
       f = asteroide()
      end
-    --  if g.y > windowHeight then
-    --   g = asteroide()
-    --  end
+     if g.y > windowHeight then
+      g = asteroide()
+     end
   end
-  
-  
 end
 
 function love.draw()
@@ -105,10 +121,11 @@ function love.draw()
   love.graphics.draw(background, 0, 0, 0, windowWidth/backgroundW, windowHeight/backgroundH)
   if(colision) then
     love.graphics.draw(gameOver, 140, 0,0, 0.5,0.5)
-    love.graphics.draw
   end
    --nave
   love.graphics.draw(nave, posicionX, posicionY)
+  -- love.graphics.circle("line", hitBoxX+posicionX, hitBoxY + posicionY, hitBoxRadio) --hitbox nave
+  love.graphics.print(text, 200, 450 )
   --asteroides
   a.draw(a)
   b.draw(b)
@@ -116,6 +133,7 @@ function love.draw()
   d.draw(d)
   e.draw(e)
   f.draw(f)
+  g.draw(g)
 end
 
 function checkColision(obj)
@@ -123,3 +141,22 @@ function checkColision(obj)
   local dist = math.sqrt(((obj.x+obj.hitboxX) - (hitBoxX+posicionX))^2  + ((obj.hitboxY + obj.y) - (hitBoxY + posicionY))^2)
   return dist <= obj.hitboxRadio + hitBoxRadio
 end 
+
+-- function controlesUpdate()
+--   local x = 0
+-- 	local data, msg_or_ip, port_or_nil = Udp:receivefrom()
+--   x = data
+-- 	if data then
+-- 		if x < 0 then
+-- 			return -1
+-- 		end
+-- 		if x > 0 then 
+-- 			return 1
+-- 		end
+-- 		if x == 0 then
+-- 			return 0 
+-- 		end
+--   else
+--     return 0
+-- 	end
+-- end
