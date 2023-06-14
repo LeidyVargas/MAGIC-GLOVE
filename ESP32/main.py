@@ -14,7 +14,7 @@ import network
 #conectar wifi
 wlan = network.WLAN(network.STA_IF)
 wlan.active(True)
-
+# funcion para conectar al wifi
 def connectWifi(ssid, pwd):
     while not wlan.isconnected():
         print('connecting to network...')
@@ -23,7 +23,7 @@ def connectWifi(ssid, pwd):
             pass
         else:
             wlan.connect(ssid, pwd)
-            
+#llamado a la función para conectarse
 if not wlan.isconnected():
     connectWifi("MagicGlove","aeiouaei")
 else:
@@ -32,8 +32,7 @@ else:
 # Crear socket UDP
 server = usocket.socket(usocket.AF_INET, usocket.SOCK_DGRAM)
 serverAdressPort = ("192.168.12.8", 12345)
-#server.connect(serverAdressPort)
-
+#función para enviar datos por el socket
 def sendUDP(data):
     try:
         server.sendto(str.encode(data), serverAdressPort)
@@ -43,10 +42,10 @@ def sendUDP(data):
 # Usar Giroscopio
 i2c = I2C(scl = Pin(22), sda = Pin(21))
 mpu = mpu6050.accel(i2c)
-
+#funcion para pasar de raw a grados
 def conversion(x):
     return round(x * 250 / 32767, 2)
-
+#lectura de datos y programa principal
 while True:
     temps = (mpu.get_values())
     gyroX = temps ["GyX"]
@@ -63,30 +62,6 @@ while True:
     print()
     time.sleep_ms(10)
     sendUDP(str(gradosY))
-
-# Agregar ip y port de donde está el servidor UDP
-#serverAddressPort = ("192.168.17.8", 3001)
-# Cantidad de bytes a recibir
-#bufferSize  = 128
-
-# Create a UDP socket at client side
-#sk = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-
-# Función para enviar datos
-
-# Función para recibir datos
-#def receiveUDP():
- #   msg = sk.recvfrom(bufferSize)
-  #  return "{}".format(msg[0])
- 
-# Activar si el esp32 será una estación
-#from wifiSTA import connectSTA as connect
-# Activar si el esp32 estará en modo de acceso AP
-#from wifiAP import apConfig as connect
-# poner acá el nombre de red ssid y password para conectarse
-#connect("MagicGlove", "aeiouaei")
-
-
 
     
 
