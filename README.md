@@ -26,13 +26,12 @@ Mientras que, en esta segunda imagen, se define una tecnología para cada una de
 ## **IMAGENES DE DISEÑOS EN EL SALON**
 Conforme se avanzó en el proyecto, el profesor nos realizaba las respectivas correcciones y/o retroalimentaciones, en el tablero del salón; las cuales tenían que ver con la estructura del circuito, y se observan en las siguientes imágenes:
 
-![diseño en salon 1](/ "Diseño en salon 1")
+![diseño en salon 1](./Imagenes/Diagramas/Diagrama%20clase%201.jpeg "Diseño en salon 1")
 
-![diseño en salon 2](/ "Diseño en salon 2")
+![diseño en salon 2](./Imagenes/Diagramas/Diagrama%20clase%202.jpg "Diseño en salon 2")
 
-![diseño en salon 3](/ "Diseño en salon 3")
+![diseño en salon 3](./Imagenes/Diagramas/Diagrama%20clase%203.jpg "Diseño en salon 3")
 
-![diseño en salon 3](/ "Diseño en salon 4")
 
 ## **IMPLEMENTACIÓN**
 En esta sección, se empieza  diseñar, construir y montar la parte electronica y fisica del guante, por lo cual se inicia creando el circuito que relaciona cada componente que contiene el mismo, quedando de la siguiente forma: 
