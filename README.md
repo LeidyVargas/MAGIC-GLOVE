@@ -10,18 +10,18 @@ Nosotros Leidy Juliana Vargas Moreno, Emmanuel Bonilla Mitrotti y Juan Sebastian
 De esta manera, cualquier persona podrá divertirse de una manera diferente a “presionar botones” y además, el guante también puede ser utilizado, para juegos educativos, en donde se fomente el aprendizaje, con la diversión. Solo es cuestión de adaptarlo. 
 
 ## **DIAGRAMA DE FLUJO SOLUCIÓN**
-![Diagrama de flujo](/ "Diagrama de Flujo")
+![Diagrama de flujo](./Imagenes/Diagramas/Diagrama%20de%20flujo.jpeg "Diagrama de Flujo")
 
 ## **DIAGRAMA DE CAJA NEGRA**
 Luego de ver el funcionamiento del guante, se establece un diagrama de cajas negras, en donde se busca definir lo que va a hacer este proyecto y lo que necesita, evaluado a su vez entradas y salidas, tanto de cada componente, como de energía.
 
 En este primero se observa dicho diagrama, sin una tecnología definida:
 
-![Diagrama de caja negra](/ "Diagrama de caja negra")
+![Diagrama de caja negra](./Imagenes/Diagramas/Diagrama%20caja%20negra%201.jpeg "Diagrama de caja negra")
 
 Mientras que, en esta segunda imagen, se define una tecnología para cada una de las “cajas” evaluadas en el diagrama:
 
-![Diagrama de caja negra2](/ "Diagrama de caja negra2")
+![Diagrama de caja negra2](./Imagenes/Diagramas/Diagrama%20caja%20negra%202.jpeg "Diagrama de caja negra2")
 
 ## **IMAGENES DE DISEÑOS EN EL SALON**
 Conforme se avanzó en el proyecto, el profesor nos realizaba las respectivas correcciones y/o retroalimentaciones, en el tablero del salón; las cuales tenían que ver con la estructura del circuito, y se observan en las siguientes imágenes:
