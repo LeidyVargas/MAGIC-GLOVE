@@ -66,7 +66,13 @@ La pruebas de estructura consisten en el corte láser, realizado para construir 
 
 ![Comparacion](./Imagenes/Comparacion%20tama%C3%B1os.jpeg)
 
+En el desarrollo del juego se abrió un socketUDP para poder recibir los datos del guante y asi poder mover la nave. 
+
+![imagen Juego](./Imagenes/Juego%20en%20funcionamiento.png)
+
 Por otro lado, se realizaron diversas pruebas de programación, pues al principio no se recibieron correctamente los datos de movimiento del giroscopio, tal como se observa en el siguiente video; pues la nave se mueve hacia otro lado diferente del giroscopio, además de que no lograba conectarse al computador, [Link del video](https://drive.google.com/file/d/1B0-Tp8vFir5iOuBAsjUjZbyzAw1yB5q_/view?usp=sharing)
+
+
 
 Al final de las pruebas realizadas, se logra construir el guante y por tanto terminar el proyecto, el resultado y aplicación del guante, se puede observar en el siguiente video: [Link del video final. ](https://drive.google.com/file/d/1lEBwlxsq8i-k6dF0UPMbI0pn6SOiZDgC/view?usp=sharing)
 
