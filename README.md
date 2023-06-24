@@ -72,6 +72,8 @@ En el desarrollo del juego se abrió un socketUDP para poder recibir los datos d
 
 Por otro lado, se realizaron diversas pruebas de programación, pues al principio no se recibieron correctamente los datos de movimiento del giroscopio, tal como se observa en el siguiente video; pues la nave se mueve hacia otro lado diferente del giroscopio, además de que no lograba conectarse al computador, [Link del video](./Videos/Juego%20y%20Guante%20.mp4)
 
+https://github.com/LeidyVargas/MAGIC-GLOVE/blob/2d699b44617575decad46e0711f7ef172d248a15/Videos/Juego%20y%20Guante%20.mp4
+
 
 
 Al final de las pruebas realizadas, se logra construir el guante y por tanto terminar el proyecto, el resultado y aplicación del guante, se puede observar en el siguiente video: [Link del video final. ](./Videos/PRUEBA%20DE%20FUNCIONAMIENTO.mp4)
